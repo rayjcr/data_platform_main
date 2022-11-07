@@ -9,7 +9,7 @@ import cookie from 'js-cookie'
 
 // 创建 axios 实例
 const service = axios.create({
-    baseURL: process.env.VUE_APP_API_BASE_URL, // api base_url
+    // baseURL: process.env.VUE_APP_API_BASE_URL, // api base_url
     timeout: 18000,// 请求超时时间
     withCredentials: true,
 })
@@ -35,10 +35,13 @@ const err = (error) => {
 }
 // request interceptor
 service.interceptors.request.use(config => {
-    // const token = cookie.get('JSESSIONID');
+    // console.log(config, 'config')
+    // // const token = cookie.get('JSESSIONID');
+    // const token = window.localStorage.getItem('JSESSIONID');
     // if (token) {
     //     config.headers['Cookies'] = 'JSESSIONID=' + token; // 让每个请求携带自定义 token 请根据实际情况自行修改
     // } 
+    console.log(config,"ppppooooooppppp")
     return config
 }, err)
 

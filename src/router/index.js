@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import LoginView from '@/views/user/Login'
+import LoginView from '@/views/user/Login'
 import * as API from '@/api/data'
 import BasicLayout from '@/layouts/BasicLayout'//首页模板
 import PageView from '@/layouts/PageView'//子页面模板
@@ -42,7 +42,11 @@ let constRouter = [
         name: 'index',
         component: IndexNew,
     },
-    
+    {
+        path: '/login',
+        name: 'login',
+        component: LoginView,
+    },
     {
         path: '/forgotPassword',
         name: 'forgotPassword',
@@ -144,13 +148,13 @@ const router = new Router({
     // routes: constantRouterMap.concat(asyncRouterMap)
 })
 let asyncRouter = null
-const whiteList = ['/register', '/forgotPassword','/center/index','/center/documentCenter','/center/downloadCenter','/center/noticeDetail','/center/notice']
+const whiteList = ['/register', '/forgotPassword','/center/index','/center/documentCenter','/center/downloadCenter','/center/noticeDetail','/center/notice','/login']
 router.beforeEach((to, from, next) => {
     if (whiteList.indexOf(to.path) !== -1) {
         next()
         return
     }
-
+    
     let token = localStorage.getItem('JSESSIONID');
     if (!token || token == 'undefined' || token == undefined) {
         cookie.set('JSESSIONID',to.query.jsessionid,{path:'/'});

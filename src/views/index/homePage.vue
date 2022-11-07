@@ -1,3 +1,4 @@
+<!--eslint-disable-->
 <template>
     <div class="homePage ">
         <div class="homePage-head flex" :class="{'scroll':isScroll}">
@@ -204,7 +205,9 @@ export default {
         },
         // 登录
         toLogin(){
+            // console.log('first')
             window.location.href = this.common.url + "/casLogin";
+            // this.$router.push('/login');
         },
         // 查询公告
         async myNotice(){

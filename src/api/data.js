@@ -1,215 +1,208 @@
-import api from './index'
+// import api from './index'
 import { axios } from '@/utils/request'
 // const base = '/xxbz'
 // const base = '/standard'
-const base = ''
+const base = '/api'
 
-/**
- * 
- *  数据源相关
- * 
- */
+/* 数据源相关 */
 
-
-
-
-//查询用户信息分页
-export function getUserPage(parameter) {
-    return axios({
-        url: `${base}/user`,
-        method: 'get',
-        params: parameter,
-    })
+// 查询用户信息分页
+export function getUserPage (parameter) {
+  return axios({
+    url: `${base}/user`,
+    method: 'get',
+    params: parameter
+  })
 }
 
-//获取用户信息
-export function getUserInfo(id) {
-    return axios({
-        url: `${base}/user/getUserInfo/` + id,
-        method: 'get',
-    })
+// 获取用户信息
+export function getUserInfo (id) {
+  return axios({
+    url: `${base}/user/getUserInfo/` + id,
+    method: 'get'
+  })
 }
 
 // 获取未分配的用户列表
-export function getUserNoRoleList(parameter) {
-    return axios({
-        url: `${base}/user/userNoRoleList`,
-        method: 'get',
-        params: parameter,
-    })
+export function getUserNoRoleList (parameter) {
+  return axios({
+    url: `${base}/user/userNoRoleList`,
+    method: 'get',
+    params: parameter
+  })
 }
 
-//获取当前登录用户信息
-export function currentUserInfo() {
-    return axios({
-        url: `${base}/user/currentUserInfo`,
-        method: 'post',
-    })
+// 获取当前登录用户信息
+export function currentUserInfo () {
+  return axios({
+    url: `${base}/user/currentUserInfo`,
+    method: 'post'
+  })
 }
 
-//新增用户信息
-export function addUser(parameter) {
-    return axios({
-        url: `${base}/user`,
-        method: 'post',
-        data: parameter,
-    })
+// 新增用户信息
+export function addUser (parameter) {
+  return axios({
+    url: `${base}/user`,
+    method: 'post',
+    data: parameter
+  })
 }
 
-//编辑用户信息
-export function updateUser(parameter) {
-    return axios({
-        url: `${base}/user`,
-        method: 'PUT',
-        data: parameter,
-    })
+// 编辑用户信息
+export function updateUser (parameter) {
+  return axios({
+    url: `${base}/user`,
+    method: 'PUT',
+    data: parameter
+  })
 }
 
 // 保存用户数据权限
-export function saveUserDept(parameter) {
-    return axios({
-        url: `${base}/user/saveUserDept`,
-        method: 'post',
-        data: parameter,
-    })
+export function saveUserDept (parameter) {
+  return axios({
+    url: `${base}/user/saveUserDept`,
+    method: 'post',
+    data: parameter
+  })
 }
 
 // 删除用户部门权限,逗号分隔
-export function removeDept(parameter) {
-    return axios({
-        url: `${base}/user/removeDept`,
-        method: 'DELETE',
-        params: parameter,
-    })
+export function removeDept (parameter) {
+  return axios({
+    url: `${base}/user/removeDept`,
+    method: 'DELETE',
+    params: parameter
+  })
 }
 
 // 用户类型,逗号分隔
-export function userType(parameter) {
-    return axios({
-        url: `${base}/user/type`,
-        method: 'post',
-        params: parameter,
-    })
+export function userType (parameter) {
+  return axios({
+    url: `${base}/user/type`,
+    method: 'post',
+    params: parameter
+  })
 }
 
-//根据用户id查询部门
-export function getDeptInfo(id) {
-    return axios({
-        url: `${base}/user/dept/` + id,
-        method: 'get',
-    })
+// 根据用户id查询部门
+export function getDeptInfo (id) {
+  return axios({
+    url: `${base}/user/dept/` + id,
+    method: 'get'
+  })
 }
 
-//删除用户信息
-export function delUser(id) {
-    return axios({
-        url: `${base}/user/` + id,
-        method: 'DELETE'
-    })
+// 删除用户信息
+export function delUser (id) {
+  return axios({
+    url: `${base}/user/` + id,
+    method: 'DELETE'
+  })
 }
 
 // 密码初始化
-export function reset(parameter) {
-    return axios({
-        url: `${base}/user/password/reset`,
-        method: 'PUT',
-        params: parameter,
-    })
+export function reset (parameter) {
+  return axios({
+    url: `${base}/user/password/reset`,
+    method: 'PUT',
+    params: parameter
+  })
 }
 
 // 修改密码
-export function changePassword(parameter) {
-    return axios({
-        url: `${base}/user/password`,
-        method: 'PUT',
-        params: parameter,
-    })
+export function changePassword (parameter) {
+  return axios({
+    url: `${base}/user/password`,
+    method: 'PUT',
+    params: parameter
+  })
 }
 
 // 修改用户状态
-export function handleStatus(parameter) {
-    return axios({
-        url: `${base}/user/handleStatus`,
-        method: 'PUT',
-        params: parameter,
-    })
+export function handleStatus (parameter) {
+  return axios({
+    url: `${base}/user/handleStatus`,
+    method: 'PUT',
+    params: parameter
+  })
 }
 
-//新增编辑用户 角色列表
-export function getRoleList(parameter) {
-    return axios({
-        url: `${base}/role`,
-        method: 'get',
-        params: parameter,
-        headers: {
-            "Authentication": localStorage.getItem('token')    //请求头携带的token
-        }
-    })
+// 新增编辑用户 角色列表
+export function getRoleList (parameter) {
+  return axios({
+    url: `${base}/role`,
+    method: 'get',
+    params: parameter,
+    headers: {
+      'Authentication': localStorage.getItem('token') // 请求头携带的token
+    }
+  })
 }
 
 // 钉钉
-export function jumpDing(params) {
-    return axios({
-        url: `${base}/bind/jumpDing`,
-        method: 'get',
-        params,
-    })
+export function jumpDing (params) {
+  return axios({
+    url: `${base}/bind/jumpDing`,
+    method: 'get',
+    params
+  })
 }
 
 // 绑定钉钉
-export function dingBind(params) {
-    return axios({
-        url: `${base}/bind/dingBind`,
-        method: 'get',
-        params,
-    })
+export function dingBind (params) {
+  return axios({
+    url: `${base}/bind/dingBind`,
+    method: 'get',
+    params
+  })
 }
 
 // 解绑钉钉
-export function removeDingBind(params) {
-    return axios({
-        url: `${base}/bind/remove`,
-        method: 'POST',
-        params,
-    })
+export function removeDingBind (params) {
+  return axios({
+    url: `${base}/bind/remove`,
+    method: 'POST',
+    params
+  })
 }
 
 // 查询用户所有第三方绑定信息
-export function userBindInfo(params) {
-    return axios({
-        url: `${base}/bind/userBindInfo`,
-        method: 'get',
-        params,
-    })
+export function userBindInfo (params) {
+  return axios({
+    url: `${base}/bind/userBindInfo`,
+    method: 'get',
+    params
+  })
 }
 
-//获取当前用户角色
-export function currentUserRole() {
-    return axios({
-        url: `${base}/role/currentUserRole`,
-        method: 'get',
-    })
+// 获取当前用户角色
+export function currentUserRole () {
+  return axios({
+    url: `${base}/role/currentUserRole`,
+    method: 'get'
+  })
 }
 
-//根据角色id查询用户
-export function getUserFromId(params) {
-    return axios({
-        url: `${base}/role/user`,
-        method: 'get',
-        params
-    })
+// 根据角色id查询用户
+export function getUserFromId (params) {
+  return axios({
+    url: `${base}/role/user`,
+    method: 'get',
+    params
+  })
 }
 
-//保存角色用户
-export function saveRoleUser(parameter) {
-    return axios({
-        url: `${base}/role/saveRoleUser`,
-        method: 'post',
-        params: parameter,
-    })
+// 保存角色用户
+export function saveRoleUser (parameter) {
+  return axios({
+    url: `${base}/role/saveRoleUser`,
+    method: 'post',
+    params: parameter
+  })
 }
 
-//移除角色用户
+// 移除角色用户
 export function removeRoleUser(parameter) {
     return axios({
         url: `${base}/role/removeRoleUser`,
@@ -218,7 +211,7 @@ export function removeRoleUser(parameter) {
     })
 }
 
-//获取部门列表
+// 获取部门列表
 export function getDeptList(parameter) {
     return axios({
         url: `${base}/dept`,
@@ -483,7 +476,7 @@ export function editDict(parameter) {
     })
 }
 
-//删除数据字典
+// 删除数据字典
 export function delDict(id) {
     return axios({
         url: `${base}/dict/` + id,
@@ -494,7 +487,7 @@ export function delDict(id) {
     })
 }
 
-//导出数据字典
+// 导出数据字典
 export function exportDict(parameter) {
     return axios({
         url: `${base}/dict/excel`,
@@ -520,8 +513,7 @@ export function onlineList(parameter) {
     })
 }
 
-//踢用户
-
+// 踢用户
 export function kickout(id) {
     return axios({
         url: `${base}/kickout/` + id,
@@ -533,7 +525,6 @@ export function kickout(id) {
 }
 
 // 日志列表
-
 export function logList(parameter) {
     return axios({
         url: `${base}/log/logList`,
@@ -552,7 +543,6 @@ export function loginLis(parameter) {
 }
 
 // 删除日志
-
 export function delLog(id) {
     return axios({
         url: `${base}/log/` + id,
@@ -563,7 +553,7 @@ export function delLog(id) {
     })
 }
 
-//导出日志
+// 导出日志
 export function exportLog(parameter) {
     return axios({
         url: `${base}/log/excel`,
@@ -576,7 +566,7 @@ export function exportLog(parameter) {
     })
 }
 
-//导出用户
+// 导出用户
 export function exportUser(parameter) {
     return axios({
         url: `${base}/user/excel`,
@@ -589,7 +579,7 @@ export function exportUser(parameter) {
     })
 }
 
-//导出角色
+// 导出角色
 export function exportRole(parameter) {
     return axios({
         url: `${base}/role/excel`,
@@ -601,7 +591,7 @@ export function exportRole(parameter) {
         }
     })
 }
-//导出菜单
+// 导出菜单
 export function exportMenu(parameter) {
     return axios({
         url: `${base}/menu/excel`,
@@ -614,7 +604,7 @@ export function exportMenu(parameter) {
     })
 }
 
-//新增菜单
+// 新增菜单
 export function addMenu(parameter) {
     return axios({
         url: `${base}/menu/add`,
@@ -626,7 +616,7 @@ export function addMenu(parameter) {
     })
 }
 
-//编辑菜单
+// 编辑菜单
 export function updateMenu(parameter) {
     return axios({
         url: `${base}/menu/update`,
@@ -650,7 +640,7 @@ export function delMenu(parameter) {
     })
 }
 
-//同步
+// 同步
 export function deptList(parameter) {
     return axios({
         url: `${base}/dept`,
@@ -697,8 +687,7 @@ export function exportDept(parameter) {
 }
 
 
-// 修改头像
-
+// 修改头
 export function uploadAvatar(parameter) {
     return axios({
         url: `${base}/user/avatar`,

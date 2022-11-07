@@ -1,6 +1,6 @@
 import data from './index'
 import { axios } from '@/utils/request'
-const base = ''
+const base = '/api'
 /**
  * login func
  * parameter: {

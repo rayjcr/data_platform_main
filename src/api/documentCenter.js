@@ -1,5 +1,5 @@
 import { axios } from '@/utils/request'
-const base = ''
+const base = '/api'
 
 /**
  * 文档中心

@@ -58,8 +58,9 @@ const vueConfig = {
 
   devServer: {
     // development server port 8000
-    port: 80,
-    host: 'open.hzgsedu.cn',
+    port: 8085,
+    // host: 'open.hzgsedu.cn',
+    host: '127.0.0.1',
     // If you want to turn on the proxy, please remove the mockjs /src/main.jsL11
     proxy: {
       '/api': {
@@ -69,13 +70,13 @@ const vueConfig = {
         // target: 'http://192.168.0.80:5188',
         // target: 'http://179.10.34.127',
         // target: 'http://192.168.0.8:9528',
-        target: 'http://192.168.100.10',
+        target: 'http://47.103.126.125:8899',
         // target: 'http://192.168.0.217',
         // target: 'http://192.168.30.8',
         // ws: false,
         changeOrigin: true,
         pathRewrite: {
-          '^/api': ''
+          '^/api': '/api'
         },
       },
       '/backend/': {
